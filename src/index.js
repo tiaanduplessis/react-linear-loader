@@ -1,22 +1,47 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+const isNum = num => typeof num === 'number'
+
+class LinearLoader extends Component {
+  static defaultProps = {
+    height: '5px',
+    backgroundColor: '#cdffeb',
+    color: '#009f9d',
+    containerStyle: {},
+    style: {}
+  };
 
   render() {
     const {
-      text
+      progress,
+      height,
+      backgroundColor,
+      color,
+      containerStyle,
+      style
     } = this.props
 
     return (
-      <div className={styles.test}>
-        Example Component: {text}
+      <div
+        className={styles.container}
+        style={{ height: height, backgroundColor, ...containerStyle }}
+      >
+        {isNum(progress) ? (
+          <div
+            className={styles.intermittent}
+            style={{ width: `${progress}%`, backgroundColor: color, ...style }}
+          />
+        ) : (
+          <div
+            className={styles.continues}
+            style={{ backgroundColor: color, ...style }}
+          />
+        )}
       </div>
     )
   }
 }
+
+export default LinearLoader

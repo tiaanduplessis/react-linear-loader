@@ -1,7 +1,5 @@
-import ExampleComponent from './'
+import LinearLoader from './'
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
+test('Should exist', () => {
+  expect(LinearLoader).toBeTruthy()
 })
