@@ -15,12 +15,16 @@ npm install --save react-linear-loader
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-linear-loader'
+import LinearLoader from 'react-linear-loader'
 
-class Example extends Component {
+export default class App extends Component {
   render () {
     return (
-      <MyComponent />
+      <div>
+        <LinearLoader />
+        <h1>Well this is the demo....</h1>
+        <img src="https://i.imgflip.com/2rjx1w.jpg" alt=""/>
+      </div>
     )
   }
 }
